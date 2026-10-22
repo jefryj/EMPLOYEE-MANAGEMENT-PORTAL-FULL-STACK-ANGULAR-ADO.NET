@@ -1,0 +1,196 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+      <div class="card shadow-lg border-2">
+        <div class="card-header bg-primary text-white">
+          <h2 class="mb-0">Add Employee</h2>
+        </div>
+
+        <div class="card-body">
+
+          <form #employeeForm="ngForm">
+
+      
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="employee.name"
+                name="name"
+                #name="ngModel"
+                required>
+
+              @if (name.invalid && name.touched) {
+                <div class="text-danger">
+                  Name is required.
+                </div>
+              }
+            </div>
+
+  
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                [(ngModel)]="employee.email"
+                name="email"
+                #email="ngModel"
+                required
+                email>
+
+              @if (email.invalid && email.touched) {
+                <div class="text-danger">
+                  Please enter a valid email address.
+                </div>
+              }
+            </div>
+
+
+            <div class="mb-3">
+              <label class="form-label">Phone</label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="employee.phone"
+                name="phone"
+                #phone="ngModel"
+                required
+                pattern="^[0-9]{10}$">
+
+              @if (phone.invalid && phone.touched) {
+                <div class="text-danger">
+                  Phone number must contain 10 digits.
+                </div>
+              }
+            </div>
+
+
+            <div class="mb-3">
+              <label class="form-label">Salary</label>
+              <input
+                type="number"
+                class="form-control"
+                [(ngModel)]="employee.salary"
+                name="salary"
+                #salary="ngModel"
+                required
+                min="1">
+
+
+              @if (salary.invalid && salary.touched) {
+                <div class="text-danger">
+                  Salary must be greater than 0.
+                </div>
+              }
+            </div>
+
+
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                [(ngModel)]="employee.password"
+                name="password"
+                #password="ngModel"
+                required
+                minlength="8">
+
+              @if (password.invalid && password.touched) {
+                <div class="text-danger">
+                  Password must be at least 8 characters.
+                </div>
+              }
+            </div>
+
+
+              <div class="mb-3">
+              <label class="form-label">Department</label>
+
+              <select
+                class="form-select"
+                [(ngModel)]="employee.departmentId"
+                name="departmentId"
+                #departmentId="ngModel"
+                required>
+
+                <option [ngValue]="0">Select Department</option>
+
+                @for (department of departments; track department.id) {
+                    <option [ngValue]="department.id">
+                      {{ department.departmentName }}
+                    </option>
+                  }
+
+              </select>
+
+            @if (employee.departmentId === 0 && departmentId.touched) {
+              <div class="text-danger">
+                Please select a department.
+              </div>
+            }
+          </div>
+
+
+            <div class="mb-3">
+              <label class="form-label">Project</label>
+
+              <select
+                class="form-select"
+                [(ngModel)]="employee.projectId"
+                name="projectId"
+                >
+
+                <option [ngValue]="0">Select Project(Optional)</option>
+
+                @for (project of projects; track project.id) {
+                    <option [ngValue]="project.id">
+                      {{ project.projectName }}
+                    </option>
+                  }
+
+              </select>
+          </div>
+
+            <div class="mb-4">
+              <label class="form-label">Role</label>
+
+              <select
+                class="form-select"
+                [(ngModel)]="employee.roleId"
+                name="roleId"
+                #roleId="ngModel"
+                required>
+
+                <option [ngValue]="0">Select Role</option>
+                <option [ngValue]="1">Admin</option>
+                <option [ngValue]="2">Employee</option>
+
+              </select>
+
+              @if (employee.roleId === 0 && roleId.touched) {
+                <div class="text-danger">
+                  Please select a role.
+                </div>
+              }
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-primary btn-lg w-100"
+              [disabled]="employeeForm.invalid"
+              (click)="addEmployee()">
+              Add Employee
+            </button>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,190 @@
+<main class="home-page container py-5">
+  <header class="page-header d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-4">
+    <div>
+      <p class="eyebrow mb-2">EMPLOYEE ADMINISTRATION</p>
+      <h1 class="mb-2">Employee Management Portal</h1>
+      <p class="page-description mb-0">Manage employees, departments, projects and reports.</p>
+    </div>
+    <button class="btn logout-btn" (click)="logout()">Logout <span>&#8594;</span></button>
+  </header>
+
+  @if(roleId === 1) {
+    <section>
+      <h2 class="section-title">Admin Panel</h2>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+        <div class="col">
+          <a routerLink="/employees" class="card portal-card ">
+            <span class="card-body">
+              <span>
+                <span class="card-title">Employees</span>
+                <span class="card-description">Browse and Manage employee records</span>
+              </span>
+              <span class="card-arrow">&#8594;</span>
+            </span>
+          </a>
+        </div>
+        <div class="col">
+          <a routerLink="/add-employee" class="card portal-card ">
+            <span class="card-body">
+              <span>
+                <span class="card-title">Add Employee</span>
+                <span class="card-description">Create a new employee record</span>
+              </span>
+              <span class="card-arrow">&#8594;</span>
+            </span>
+          </a>
+        </div>
+        <div class="col">
+          <a routerLink="/departments" class="card portal-card ">
+            <span class="card-body">
+              <span>
+                <span class="card-title">Departments</span>
+                <span class="card-description">View the organization's departments</span>
+              </span>
+              <span class="card-arrow">&#8594;</span>
+            </span>
+          </a>
+        </div>
+        <div class="col">
+          <a routerLink="/projects" class="card portal-card ">
+            <span class="card-body">
+              <span>
+                <span class="card-title">Projects</span>
+                <span class="card-description">View current projects</span>
+              </span>
+              <span class="card-arrow">&#8594;</span>
+            </span>
+          </a>
+        </div>
+        <div class="col">
+          <a routerLink="/reports" class="card portal-card ">
+            <span class="card-body">
+              <span>
+                <span class="card-title">Reports</span>
+                <span class="card-description">Review workforce insights</span>
+              </span>
+              <span class="card-arrow">&#8594;</span>
+            </span>
+          </a>
+        </div>
+        <div class="col">
+          <a routerLink="/audit-logs" class="card portal-card ">
+            <span class="card-body">
+              <span>
+                <span class="card-title">Audit Logs</span>
+                <span class="card-description">Review recent activity</span>
+              </span>
+              <span class="card-arrow">&#8594;</span>
+            </span>
+          </a>
+        </div>
+        <div class="col">
+          <a routerLink="/dashboard" class="card portal-card ">
+            <span class="card-body">
+              <span>
+                <span class="card-title">Dashboard</span>
+                <span class="card-description">See key metrics at a glance</span>
+              </span>
+              <span class="card-arrow">&#8594;</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  }
+
+  @if(roleId === 2) {
+    <section>
+      <h2 id="employee-panel-title" class="section-title">Employee Panel</h2>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+        <div class="col">
+          <a routerLink="/employees" class="card portal-card ">
+            <span class="card-body">
+              <span>
+                <span class="card-title">
+                  View Employees
+                </span>
+                <span class="card-description">
+                  Find colleagues and team details
+                </span>
+              </span>
+              <span class="card-arrow">
+                &#8594;
+              </span>
+            </span>
+          </a>
+        </div>
+        <div class="col">
+          <a routerLink="/departments" class="card portal-card ">
+            <span class="card-body">
+              <span>
+                <span class="card-title">
+                Departments
+              </span>
+              <span class="card-description">
+                Explore teams and structure
+              </span>
+            </span>
+            <span class="card-arrow">
+              &#8594;
+            </span>
+          </span>
+        </a>
+      </div>
+        <div class="col">
+          <a routerLink="/projects" class="card portal-card ">
+            <span class="card-body">
+              <span>
+                <span class="card-title">
+                  Projects
+                </span>
+                <span class="card-description">
+                  See current team projects
+                </span>
+              </span>
+            <span class="card-arrow">
+                &#8594;
+            </span>
+          </span>
+        </a>
+      </div>
+        <div class="col">
+          <a routerLink="/change-password" class="card portal-card ">
+            <span class="card-body">
+              <span>
+                <span class="card-title">
+                  Change Password
+                </span>
+                <span class="card-description">
+                  Update your sign-in details
+                </span>
+              </span>
+              <span class="card-arrow">
+                &#8594;
+              </span>
+            </span>
+          </a>
+        </div>
+        <div class="col">
+          <a routerLink="/my-profile" class="card portal-card ">
+            <span class="card-body">
+              <span>
+                <span class="card-title">
+                  My Profile
+                </span>
+                <span class="card-description">
+                  View your employee details
+                </span>
+              </span>
+              <span class="card-arrow">
+                &#8594;
+              </span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  }
+</main>

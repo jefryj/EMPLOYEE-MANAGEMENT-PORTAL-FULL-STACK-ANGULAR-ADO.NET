@@ -1,0 +1,55 @@
+.table {
+  min-width: 52rem;
+}
+
+.audit-page {
+  min-height: 100vh;
+}
+
+.audit-heading {
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--portal-line);
+}
+
+.page-kicker {
+  margin-bottom: 5px;
+  color: #a05d47;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.audit-heading h1 {
+  margin: 0;
+  font-size: 1.9rem;
+}
+
+.audit-table-shell {
+  background: #fff;
+  border: 1px solid var(--portal-line);
+  border-top: 3px solid #c87659;
+  border-radius: 6px;
+}
+
+.audit-table-shell .table {
+  margin-bottom: 0;
+}
+
+.audit-table-shell td,
+.audit-table-shell th {
+  padding: 12px 14px;
+  vertical-align: middle;
+}
+
+.audit-table-shell td:nth-child(6) {
+  min-width: 240px;
+  max-width: 380px;
+  white-space: normal;
+}
+
+@media (max-width: 575.98px) {
+  .audit-heading {
+    align-items: flex-start !important;
+    gap: 14px;
+  }
+}

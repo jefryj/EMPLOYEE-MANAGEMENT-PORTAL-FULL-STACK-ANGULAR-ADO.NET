@@ -1,0 +1,86 @@
+<main class="container py-4 reports-page">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Reports</h1>
+    <button class="btn btn-outline-primary" type="button" (click)="loadReports()">Refresh</button>
+  </div>
+
+  @if(errorMessage) {
+    <p class="alert alert-danger">{{ errorMessage }}</p>
+  }
+
+  @if(employeeSummary; as summary) {
+    <section class="mb-4">
+      <h2 id="employee-summary-heading">Employee summary</h2>
+      <dl class="summary-grid">
+        <div><dt>Total employees</dt><dd>{{ summary.totalEmployees }}</dd></div>
+        <div><dt>Average salary</dt><dd>{{ summary.averageSalary | number:'1.2-2' }}</dd></div>
+        <div><dt>Minimum salary</dt><dd>{{ summary.minSalary | number:'1.2-2' }}</dd></div>
+        <div><dt>Maximum salary</dt><dd>{{ summary.maxSalary | number:'1.2-2' }}</dd></div>
+      </dl>
+    </section>
+  }
+
+  <section class="mb-4">
+    <h2 id="department-count-heading">Employees by department</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead><tr><th>Department ID</th><th>Department</th><th>Employee count</th></tr></thead>
+        <tbody>
+          @for(row of departmentCounts; track row.departmentId) {
+            <tr><td>{{ row.departmentId }}</td><td>{{ row.departmentName }}</td><td>{{ row.employeeCount }}</td></tr>
+          } @empty {
+            <tr><td colspan="3">No department count data.</td></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mb-4">
+    <h2 id="department-salary-heading">Department salary summary</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead><tr><th>Department ID</th><th>Department</th><th>Employees</th><th>Average salary</th><th>Minimum salary</th><th>Maximum salary</th></tr></thead>
+        <tbody>
+          @for(row of departmentSalarySummaries; track row.departmentId) {
+            <tr><td>{{ row.departmentId }}</td><td>{{ row.departmentName }}</td><td>{{ row.employeeCount }}</td><td>{{ row.averageSalary | number:'1.2-2' }}</td><td>{{ row.minSalary | number:'1.2-2' }}</td><td>{{ row.maxSalary | number:'1.2-2' }}</td></tr>
+          } @empty {
+            <tr><td colspan="6">No department salary data.</td></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mb-4">
+    <h2 id="project-count-heading">Employees by project</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead><tr><th>Project ID</th><th>Project</th><th>Employee count</th></tr></thead>
+        <tbody>
+          @for(row of projectCounts; track row.projectId) {
+            <tr><td>{{ row.projectId }}</td><td>{{ row.projectName }}</td><td>{{ row.employeeCount }}</td></tr>
+          } @empty {
+            <tr><td colspan="3">No project count data.</td></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="project-salary-heading">Project salary summary</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead><tr><th>Project ID</th><th>Project</th><th>Employees</th><th>Average salary</th><th>Minimum salary</th><th>Maximum salary</th></tr></thead>
+        <tbody>
+          @for(row of projectSalarySummaries; track row.projectId) {
+            <tr><td>{{ row.projectId }}</td><td>{{ row.projectName }}</td><td>{{ row.employeeCount }}</td><td>{{ row.averageSalary | number:'1.2-2' }}</td><td>{{ row.minSalary | number:'1.2-2' }}</td><td>{{ row.maxSalary | number:'1.2-2' }}</td></tr>
+          } @empty {
+            <tr><td colspan="6">No project salary data.</td></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

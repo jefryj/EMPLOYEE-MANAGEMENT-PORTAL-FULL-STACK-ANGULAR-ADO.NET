@@ -1,0 +1,164 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f2f5f3;
+  color: #20372f;
+}
+
+.home-page {
+  min-height: 100vh;
+  padding-top: 48px !important;
+  padding-bottom: 56px !important;
+}
+
+.page-header {
+  margin-bottom: 38px;
+  padding: 34px 38px;
+  overflow: hidden;
+  background: #1e4035;
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgb(29 62 51 / 10%);
+}
+
+.eyebrow {
+  color: #e0bd6a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.page-header h1 {
+  max-width: 680px;
+  color: #fff;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.page-description {
+  color: #d0ddd7;
+  line-height: 1.5;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  color: #29483c;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.section-title::after {
+  height: 1px;
+  flex: 1;
+  background: #dce4df;
+  content: "";
+}
+
+.portal-card {
+  min-height: 112px;
+  background: #fff;
+  border: 1px solid #dce5e0;
+  border-radius: 6px;
+  color: #243e34;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.portal-card .card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 21px;
+}
+
+.card-title,
+.card-description {
+  display: block;
+}
+
+.card-title {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.card-description {
+  margin-top: 6px;
+  color: #708078;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.card-arrow {
+  flex: 0 0 auto;
+  color: #9b7624;
+  font-size: 1.25rem;
+  transition: transform 150ms ease;
+}
+
+.portal-card:hover {
+  transform: translateY(-3px);
+  border-color: #b99d5c;
+  box-shadow: 0 10px 22px rgb(34 63 51 / 10%);
+}
+
+.portal-card:hover .card-arrow {
+  transform: translateX(4px);
+}
+
+.portal-card:focus-visible,
+.logout-btn:focus-visible {
+  outline: 3px solid #c49a39;
+  outline-offset: 3px;
+}
+
+.logout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 118px;
+  padding: 10px 16px;
+  border: 1px solid #8da79b;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  background: #fff;
+  border-color: #fff;
+  color: #1e4035;
+}
+
+@media (max-width: 575.98px) {
+  .home-page {
+    padding-top: 24px !important;
+    padding-bottom: 32px !important;
+  }
+
+  .page-header {
+    margin-bottom: 30px;
+    padding: 26px 22px;
+  }
+
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .logout-btn {
+    align-self: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portal-card,
+  .card-arrow {
+    transition: none;
+  }
+}

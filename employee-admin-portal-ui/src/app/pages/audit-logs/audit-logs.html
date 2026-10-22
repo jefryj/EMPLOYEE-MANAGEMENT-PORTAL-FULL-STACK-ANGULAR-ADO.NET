@@ -1,0 +1,44 @@
+<main class="container py-4 audit-page">
+  <div class="d-flex justify-content-between align-items-center mb-4 audit-heading">
+    <div>
+      <p class="page-kicker">SYSTEM ACTIVITY</p>
+      <h1>Audit Logs</h1>
+    </div>
+    <button class="btn btn-outline-primary" type="button" (click)="loadAuditLogs()">Refresh</button>
+  </div>
+
+  @if(errorMessage) {
+    <p class="alert alert-danger">{{ errorMessage }}</p>
+  }
+
+  <div class="table-responsive audit-table-shell">
+    <table class="table table-striped table-hover align-middle">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Employee ID</th>
+          <th scope="col">User name</th>
+          <th scope="col">Action</th>
+          <th scope="col">Entity</th>
+          <th scope="col">Details</th>
+          <th scope="col">Created at</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(log of auditLogs; track log.id) {
+          <tr>
+            <td>{{ log.id }}</td>
+            <td>{{ log.employeeId ?? 'N/A' }}</td>
+            <td>{{ log.userName }}</td>
+            <td>{{ log.action }}</td>
+            <td>{{ log.entityName }}</td>
+            <td>{{ log.details ?? 'N/A' }}</td>
+            <td>{{ log.createdAt | date:'medium' }}</td>
+          </tr>
+        } @empty {
+          <tr><td colspan="7">No audit logs found.</td></tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</main>

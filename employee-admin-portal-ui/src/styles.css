@@ -1,0 +1,81 @@
+:root {
+	--portal-ink: #20372f;
+	--portal-green: #1e4035;
+	--portal-green-light: #e6efea;
+	--portal-muted: #6b7b73;
+	--portal-line: #d9e3dd;
+	--portal-surface: #fff;
+	--portal-canvas: #f2f5f3;
+	--portal-gold: #c49a39;
+}
+
+body {
+	margin: 0;
+	background: var(--portal-canvas);
+	color: var(--portal-ink);
+	font-family: "Aptos", "Segoe UI", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	color: var(--portal-ink);
+	font-weight: 700;
+}
+
+.form-label {
+	color: #344b41;
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+
+.form-control,
+.form-select {
+	border-color: #cbd8d0;
+	border-radius: 5px;
+}
+
+.form-control:focus,
+.form-select:focus {
+	border-color: #6b9580;
+	box-shadow: 0 0 0 0.2rem rgb(74 122 98 / 16%);
+}
+
+.btn-primary {
+	--bs-btn-bg: var(--portal-green);
+	--bs-btn-border-color: var(--portal-green);
+	--bs-btn-hover-bg: #285743;
+	--bs-btn-hover-border-color: #285743;
+	--bs-btn-active-bg: #19372d;
+	--bs-btn-active-border-color: #19372d;
+}
+
+.btn-outline-primary {
+	--bs-btn-color: var(--portal-green);
+	--bs-btn-border-color: #759583;
+	--bs-btn-hover-bg: var(--portal-green);
+	--bs-btn-hover-border-color: var(--portal-green);
+}
+
+.table {
+	--bs-table-bg: var(--portal-surface);
+	--bs-table-striped-bg: #f4f7f5;
+	--bs-table-hover-bg: #edf3ef;
+	--bs-table-border-color: #e0e8e3;
+	color: var(--portal-ink);
+}
+
+.table thead th {
+	background: #e8efeb;
+	color: #395448;
+	font-size: 0.82rem;
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+:focus-visible {
+	outline: 3px solid var(--portal-gold);
+	outline-offset: 2px;
+}

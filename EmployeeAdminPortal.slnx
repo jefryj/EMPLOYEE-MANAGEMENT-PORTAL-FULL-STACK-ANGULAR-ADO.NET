@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="EmployeeAdminPortal.Api/EmployeeAdminPortal.Api.csproj" />
+  <Project Path="EmployeeAdminPortal.Tests/EmployeeAdminPortal.Tests.csproj" />
+</Solution>

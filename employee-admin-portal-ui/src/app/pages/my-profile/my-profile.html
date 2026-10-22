@@ -1,0 +1,24 @@
+<main class="container py-4 profile-page">
+  <header class="profile-heading">
+    <p class="page-kicker">ACCOUNT</p>
+    <h1>My Profile</h1>
+  </header>
+
+  @if(employee){
+    <section class="card profile-card">
+      <div class="profile-banner">
+        <span>EMPLOYEE RECORD</span>
+      </div>
+      <dl class="profile-grid">
+        <div><dt>Name</dt><dd>{{ employee.name }}</dd></div>
+        <div><dt>Employee ID</dt><dd>{{ employee.id }}</dd></div>
+        <div><dt>Email</dt><dd>{{ employee.email }}</dd></div>
+        <div><dt>Phone</dt><dd>{{ employee.phone }}</dd></div>
+        <div><dt>Department Name</dt><dd>{{ employee.departmentName }}</dd></div>
+        <div><dt>Project Name</dt><dd>{{ employee.projectName }}</dd></div>
+        <div><dt>Salary</dt><dd>{{ employee.salary }}</dd></div>
+        <div><dt>Role Name</dt><dd>{{ employee.roleName }}</dd></div>
+      </dl>
+    </section>
+  }
+</main>

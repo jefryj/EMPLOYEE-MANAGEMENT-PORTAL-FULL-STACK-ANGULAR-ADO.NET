@@ -1,0 +1,48 @@
+:host {
+	display: block;
+	min-height: 100vh;
+	padding-bottom: 32px;
+	background: #eef3f0;
+}
+
+.container {
+	max-width: 920px;
+}
+
+.card {
+	overflow: hidden;
+	border: 1px solid var(--portal-line) !important;
+	border-radius: 8px;
+	box-shadow: 0 12px 30px rgb(32 55 47 / 8%) !important;
+}
+
+.card-header {
+	padding: 20px 26px;
+	background: var(--portal-green) !important;
+}
+
+.card-header h2 {
+	color: #fff;
+	font-size: 1.4rem;
+}
+
+.card-body {
+	padding: 28px !important;
+}
+
+.text-danger {
+	margin-top: 6px;
+	font-size: 0.86rem;
+}
+
+.btn-lg {
+	min-height: 48px;
+	font-size: 1rem;
+	font-weight: 650;
+}
+
+@media (max-width: 575.98px) {
+	.card-body {
+		padding: 20px !important;
+	}
+}

@@ -1,0 +1,65 @@
+<main class="container py-4 catalog-page department-page">
+  <h1>Departments</h1>
+
+  @if(roleId === 1) {
+    <form class="department-form" (ngSubmit)="saveDepartment()">
+      <label for="departmentName" class="form-label">Department name</label>
+      <div class="d-flex flex-column flex-sm-row align-items-sm-end gap-2">
+        <input
+          id="departmentName"
+          name="departmentName"
+          class="form-control"
+          [(ngModel)]="departmentName"
+          required>
+        <button class="btn btn-primary" type="submit">
+          {{ editingId === null ? 'Add' : 'Save' }}
+        </button>
+        @if(editingId !== null) {
+          <button class="btn btn-outline-secondary" type="button" (click)="cancelEdit()">
+            Cancel
+          </button>
+        }
+      </div>
+    </form>
+  }
+
+  @if(errorMessage) {
+    <p class="alert alert-danger">{{ errorMessage }}</p>
+  }
+
+  <div class="table-responsive catalog-table-shell">
+  <table class="table table-striped table-hover align-middle mb-0">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Department</th>
+        @if(roleId === 1) {
+          <th scope="col">Actions</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for(department of departments; track department.id) {
+        <tr>
+          <td>{{ department.id }}</td>
+          <td>{{ department.departmentName }}</td>
+          @if(roleId === 1) {
+            <td>
+              <button class="btn btn-warning btn-sm" type="button" (click)="editDepartment(department)">
+                Update
+              </button>
+              <button class="btn btn-danger btn-sm ms-2" type="button" (click)="deleteDepartment(department.id)">
+                Delete
+              </button>
+            </td>
+          }
+        </tr>
+      } @empty {
+        <tr>
+          <td [attr.colspan]="roleId === 1 ? 3 : 2">No departments found.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  </div>
+</main>

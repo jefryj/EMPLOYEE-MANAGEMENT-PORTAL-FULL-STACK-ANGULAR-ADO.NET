@@ -1,0 +1,134 @@
+<main class="container py-4 employees-page">
+  <header class="employees-heading">
+    <p class="page-kicker">PEOPLE DIRECTORY</p>
+    <h1>Employees</h1>
+  </header>
+
+<section class="employee-filters">
+<div class="row g-2 align-items-end mb-3">
+  <div class="col-sm-6 col-lg-3">
+    <label for="searchName" class="form-label">Name</label>
+    <input id="searchName" class="form-control" [(ngModel)]="searchName" placeholder="Search name">
+  </div>
+  <div class="col-sm-6 col-lg-3">
+    <label for="searchEmail" class="form-label">Email</label>
+    <input id="searchEmail" class="form-control" [(ngModel)]="searchEmail" placeholder="Search email">
+  </div>
+  <div class="col-sm-6 col-lg-2">
+    <label for="departmentId" class="form-label">Department</label>
+    <select id="departmentId" class="form-select" [(ngModel)]="departmentId">
+      <option [ngValue]="null">All departments</option>
+      @for(department of departments; track department.id) {
+        <option [ngValue]="department.id">{{ department.departmentName }}</option>
+      }
+    </select>
+  </div>
+  <div class="col-sm-6 col-lg-2">
+  <label for="projectId" class="form-label">Project</label>
+  <select id="projectId" class="form-select" [(ngModel)]="projectId">
+    <option [ngValue]="null">All projects</option>
+
+    @for(project of projects; track project.id) {
+      <option [ngValue]="project.id">
+        {{ project.projectName }}
+      </option>
+    }
+  </select>
+</div>
+  <div class="col-sm-6 col-lg-2">
+    <label for="sortBy" class="form-label">Sort by</label>
+    <select id="sortBy" class="form-select" [(ngModel)]="sortBy">
+      <option value="">Default (ID)</option>
+      <option value="Name">Name</option>
+      <option value="Email">Email</option>
+      @if(roleId === 1) {
+        <option value="Salary">Salary</option>
+      }
+    </select>
+  </div>
+  <div class="col-sm-6 col-lg-2">
+    <label for="sortDirection" class="form-label">Direction</label>
+    <select id="sortDirection" class="form-select" [(ngModel)]="isDescending">
+      <option [ngValue]="false">Ascending</option>
+      <option [ngValue]="true">Descending</option>
+    </select>
+  </div>
+  <div class="col-12 d-flex gap-2">
+    <button class="btn btn-primary" type="button" (click)="applyFilters()">Apply</button>
+    <button class="btn btn-outline-secondary" type="button" (click)="clearFilters()">Clear filters</button>
+  </div>
+</div>
+
+<div class="mb-0 d-flex gap-2 id-search-row">
+  <input type="number" [(ngModel)]="searchId" placeholder="Employee ID" class="form-control">
+  <button class="btn btn-outline-primary" type="button" (click)="searchEmployee()">Find by ID</button>
+</div>
+</section>
+
+<div class="table-responsive employee-table-shell">
+<table class="table table-hover align-middle">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Department</th>
+      <th>Project</th>
+
+      @if(roleId === 1) {
+        <th>Salary</th>
+        <th>Actions</th>
+      }
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (employee of employees; track employee.id) {
+      <tr>
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.phone }}</td>
+        <td>{{ employee.departmentName }}</td>
+        <td>{{ employee.projectName || 'Unassigned'}}</td>
+
+        @if(roleId === 1) {
+          <td>{{ employee.salary }}</td>
+          <td>
+            <button
+              class="btn btn-warning btn-sm"
+              (click)="updateEmployee(employee.id)">
+              Update
+            </button>
+            <button
+              class="btn btn-danger btn-sm ms-2"
+              (click)="deleteEmployee(employee.id)">
+              Delete
+            </button>
+          </td>
+        }
+      </tr>
+    }
+  </tbody>
+</table>
+</div>
+
+<nav class="d-flex align-items-center gap-3 mt-3 employee-pagination">
+  <button
+    class="btn btn-outline-secondary"
+    type="button"
+    (click)="previousPage()"
+    [disabled]="currentPage === 1">
+    Previous
+  </button>
+  <span>Page {{ currentPage }}</span>
+  <button
+    class="btn btn-outline-secondary"
+    type="button"
+    (click)="nextPage()"
+    [disabled]="!hasNextPage">
+    Next
+  </button>
+</nav>
+</main>

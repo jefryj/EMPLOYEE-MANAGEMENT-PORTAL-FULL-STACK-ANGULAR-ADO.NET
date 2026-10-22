@@ -1,0 +1,48 @@
+:host {
+	display: block;
+	min-height: 100vh;
+}
+
+.update-employee-page {
+	min-height: 100vh;
+}
+
+.update-heading {
+	margin-bottom: 24px;
+	padding-bottom: 18px;
+	border-bottom: 1px solid var(--portal-line);
+}
+
+.page-kicker {
+	margin-bottom: 5px;
+	color: #66819b;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+}
+
+.update-heading h1 {
+	margin: 0;
+	font-size: 1.9rem;
+}
+
+.edit-employee-form {
+	max-width: 680px;
+	padding: 26px;
+	background: #fff;
+	border: 1px solid var(--portal-line);
+	border-left: 4px solid #66819b;
+	border-radius: 6px;
+	box-shadow: 0 8px 22px rgb(32 55 47 / 5%);
+}
+
+.edit-employee-form .btn {
+	min-width: 160px;
+	margin-top: 4px;
+}
+
+@media (max-width: 575.98px) {
+	.edit-employee-form {
+		padding: 18px;
+	}
+}

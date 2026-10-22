@@ -1,0 +1,62 @@
+:host {
+	display: block;
+	min-height: 100vh;
+	background: #e9efeb;
+}
+
+.login-page {
+	display: flex;
+	align-items: center;
+	min-height: 100vh;
+	padding-top: 24px !important;
+	padding-bottom: 24px !important;
+}
+
+.login-page > .row {
+	width: 100%;
+}
+
+.login-card {
+	position: relative;
+	overflow: hidden;
+	border: 1px solid #dbe5df;
+	border-radius: 8px;
+	box-shadow: 0 20px 48px rgb(30 64 53 / 12%) !important;
+}
+
+.login-card::before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 6px;
+	background: var(--portal-gold);
+	content: "";
+}
+
+.login-card .card-body {
+	padding: 38px 32px 32px;
+}
+
+.login-eyebrow {
+	color: #8b6d27;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+}
+
+.login-card h1 {
+	color: var(--portal-green);
+}
+
+.login-submit {
+	min-height: 46px;
+	margin-top: 8px;
+	font-weight: 650;
+}
+
+@media (max-width: 575.98px) {
+	.login-card .card-body {
+		padding: 34px 24px 26px;
+	}
+}

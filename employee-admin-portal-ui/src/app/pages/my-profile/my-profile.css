@@ -1,0 +1,78 @@
+:host {
+	display: block;
+	min-height: 100vh;
+	background: #edf1f5;
+}
+
+.profile-page {
+	min-height: 100vh;
+}
+
+.profile-heading {
+	margin-bottom: 24px;
+	padding-bottom: 18px;
+	border-bottom: 1px solid #d7e0e8;
+}
+
+.page-kicker {
+	margin-bottom: 5px;
+	color: #66819b;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+}
+
+.profile-heading h1 {
+	margin: 0;
+	font-size: 1.9rem;
+}
+
+.profile-card {
+	max-width: 820px;
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid #d7e0e8;
+	border-radius: 8px;
+	box-shadow: 0 10px 26px rgb(38 61 80 / 7%);
+}
+
+.profile-banner {
+	padding: 14px 22px;
+	background: #314f68;
+	color: #eaf0f5;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.09em;
+}
+
+.profile-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	margin: 0;
+	padding: 8px 22px;
+}
+
+.profile-grid > div {
+	min-width: 0;
+	padding: 16px 10px;
+	border-bottom: 1px solid #e4eaf0;
+}
+
+.profile-grid dt {
+	color: #6e7e8c;
+	font-size: 0.82rem;
+	font-weight: 600;
+}
+
+.profile-grid dd {
+	margin: 5px 0 0;
+	color: #263e50;
+	overflow-wrap: anywhere;
+}
+
+@media (max-width: 575.98px) {
+	.profile-grid {
+		grid-template-columns: 1fr;
+		padding: 4px 16px;
+	}
+}
