@@ -5,12 +5,11 @@ import { EmployeeService } from '../../services/employee';
 import { DepartmentService } from '../../services/department';
 import { ProjectService } from '../../services/project';
 import { UpdateEmployeeDto } from '../../models/update-employee';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-update-employee',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule],
   templateUrl: './update-employee.html',
   styleUrl: './update-employee.css'
 })

@@ -1,10 +1,10 @@
-<main class="container py-4 employees-page">
-  <header class="employees-heading">
-    <p class="page-kicker">PEOPLE DIRECTORY</p>
-    <h1>Employees</h1>
+<main class="container py-4">
+  <header class="mb-4">
+    <p class="small text-secondary fw-semibold mb-1">PEOPLE DIRECTORY</p>
+    <h1 class="mb-4">Employees</h1>
   </header>
 
-<section class="employee-filters">
+<section class="mb-4">
 <div class="row g-2 align-items-end mb-3">
   <div class="col-sm-6 col-lg-3">
     <label for="searchName" class="form-label">Name</label>
@@ -59,14 +59,14 @@
   </div>
 </div>
 
-<div class="mb-0 d-flex gap-2 id-search-row">
+<div class="mb-0 d-flex flex-column flex-sm-row gap-2 employee-id-search">
   <input type="number" [(ngModel)]="searchId" placeholder="Employee ID" class="form-control">
   <button class="btn btn-outline-primary" type="button" (click)="searchEmployee()">Find by ID</button>
 </div>
 </section>
 
-<div class="table-responsive employee-table-shell">
-<table class="table table-hover align-middle">
+<div class="table-responsive rounded bg-white">
+<table class="table table-hover align-middle employee-table mb-0">
   <thead>
     <tr>
       <th>Id</th>
@@ -95,7 +95,7 @@
 
         @if(roleId === 1) {
           <td>{{ employee.salary }}</td>
-          <td>
+          <td class="text-nowrap">
             <button
               class="btn btn-warning btn-sm"
               (click)="updateEmployee(employee.id)">
@@ -114,7 +114,7 @@
 </table>
 </div>
 
-<nav class="d-flex align-items-center gap-3 mt-3 employee-pagination">
+<nav class="d-flex align-items-center gap-3 mt-3 text-secondary">
   <button
     class="btn btn-outline-secondary"
     type="button"

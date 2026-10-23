@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth';
 import { ChangePasswordDto } from '../../models/change-password';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-change-password',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule],
   templateUrl: './change-password.html',
   styleUrl: './change-password.css'
 })
@@ -41,8 +40,7 @@ export class ChangePassword {
       error: (error) => {
         console.error(error);
 
-        this.errorMessage =
-          error.error?.title ?? 'Unable to change password.';
+        this.errorMessage = error.error?.title ?? 'Unable to change password.';
       }
     });
   }

@@ -11,7 +11,6 @@ import { Departments } from './pages/departments/departments';
 import { Projects } from './pages/projects/projects';
 import { Reports } from './pages/reports/reports';
 import { AuditLogs } from './pages/audit-logs/audit-logs';
-import { Dashboard } from './pages/dashboard/dashboard';
 import { ChangePassword } from './pages/change-password/change-password';
 
 export const routes: Routes = [
@@ -57,16 +56,11 @@ export const routes: Routes = [
   {
     path: 'reports',
     component: Reports,
-    canActivate: [authGuard, adminGuard]
+    canActivate: [authGuard]
   },
   {
     path: 'audit-logs',
     component: AuditLogs,
-    canActivate: [authGuard, adminGuard]
-  },
-  {
-    path: 'dashboard',
-    component: Dashboard,
     canActivate: [authGuard, adminGuard]
   },
   {

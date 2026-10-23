@@ -76,6 +76,14 @@
   margin-bottom: 0;
 }
 
+
+#departmentChart,
+#projectChart {
+  max-width: 250px;
+  max-height: 250px;
+}
+
+
 @media (max-width: 575.98px) {
   .reports-page section[aria-labelledby] {
     padding: 14px;
